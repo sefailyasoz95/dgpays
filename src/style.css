@@ -1,0 +1,21 @@
+h1,
+p {
+  font-family: Lato;
+}
+
+table {
+  border: 1px solid black
+}
+
+td {
+  border: 1px solid black;
+  padding: 5px;
+}
+
+.redBackground {
+  background-color: red;
+}
+
+input {
+  margin-bottom: 10px;
+}
