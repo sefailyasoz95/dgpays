@@ -7,7 +7,7 @@ import "./style.css";
 export default function App() {
 	const [limit, setLimit] = useState<number>(5);
 	const handleLimitChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-		Number(e.currentTarget.value) < 1 ? setLimit(1) : setLimit(Number(e.currentTarget.value));
+		setLimit(Number(e.currentTarget.value));
 	};
 
 	useEffect(() => {
@@ -17,7 +17,14 @@ export default function App() {
 	return (
 		<div>
 			<h1>DGPays Case Study </h1>
-			<input type={"number"} placeholder={`Enter limit (${limit})`} onChange={handleLimitChange} min={1} />
+			<div className='input'>
+				<label>Enter Limit</label>
+				<input type={"number"} value={limit} placeholder={`Enter limit (${limit})`} onChange={handleLimitChange} />
+				<div className='error'>
+					{limit < 0 && <span>Limit shouldn't be less than 0</span>}
+					{limit > 30 && <span>Limit shouldn't be more than 30</span>}
+				</div>
+			</div>
 			<Grid data={DummyData} />
 		</div>
 	);
